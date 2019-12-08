@@ -8,7 +8,7 @@ namespace FoodAdvice.Data.EFCore
         where TEntity : class, IEntity
         where TContext : DbContext
     {
-        private readonly TContext _context;
+        protected readonly TContext _context;
 
         protected EfCoreRepository(TContext context)
         {
@@ -20,7 +20,7 @@ namespace FoodAdvice.Data.EFCore
             return await _context.Set<TEntity>().ToListAsync();
         }
 
-        public async Task<TEntity> Get(int id)
+        public virtual async Task<TEntity> Get(int id)
         {
             return await _context.Set<TEntity>().FindAsync(id);
         }

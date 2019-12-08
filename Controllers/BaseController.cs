@@ -26,8 +26,8 @@ namespace FoodAdvice.Controllers
         }
         
         // GET: api/[controller]/5
-        [HttpGet("{id}" , Name = "Get")]
-        public async Task<ActionResult<TEntity>> Get(int id)
+        [HttpGet("{id}")]
+        public virtual async Task<ActionResult<TEntity>> Get(int id)
         {
             
             var objects = await _repository.Get(id);

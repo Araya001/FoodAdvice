@@ -33,6 +33,9 @@ namespace Food_Advice
             services.AddDbContext<FoodAdviceContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("DeafaultConnection")));
 
             services.AddScoped<EfCoreMenuRepository>();
+            services.AddScoped<EfCoreIntegradientRepository>();
+            services.AddScoped<EfCoreMenuIntegradientRepository>();
+            services.AddScoped<EfCoreStepRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

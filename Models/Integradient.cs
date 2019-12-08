@@ -5,7 +5,7 @@ using FoodAdvice.Data;
 
 namespace Food_Advice.Models
 {
-    public class Menu : IEntity
+    public class Integradient : IEntity
     {
         [Key]
         public int Id { get; set; }
@@ -25,6 +25,5 @@ namespace Food_Advice.Models
         public string LastUpdatedBy { get; set; }
         
         public ICollection<MenuIntegradient> MenuIntegradients { get; set; }
-        public ICollection<Step> Steps { get; set; }
     }
 }
