@@ -16,17 +16,5 @@ namespace FoodAdvice.Controllers
             this._repository = repository;
             _stepRepository = stepRepository;
         }
-
-//        [HttpGet("{id}")]
-//        public override async Task<ActionResult<Menu>> Get(int id)
-//        {
-//            var objects = await _repository.GetMenuWithStep(id);
-//            if (objects == null)
-//            {
-//                return NotFound();
-//            }
-//
-//            return Ok(objects);
-//        }
     }
 }
