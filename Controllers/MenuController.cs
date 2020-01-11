@@ -10,11 +10,24 @@ namespace FoodAdvice.Controllers
     public class MenuController : BaseController<Menu, EfCoreMenuRepository>
     {
         private readonly EfCoreMenuRepository _repository;
-        private readonly EfCoreStepRepository _stepRepository;
-        public MenuController(EfCoreMenuRepository repository, EfCoreStepRepository stepRepository) : base(repository)
+        private readonly EfCoreMenuInstructionRepository _menuInstructionRepository;
+        public MenuController(EfCoreMenuRepository repository, EfCoreMenuInstructionRepository menuInstructionRepository) : base(repository)
         {
             this._repository = repository;
-            _stepRepository = stepRepository;
+            _menuInstructionRepository = menuInstructionRepository;
+        }
+        
+        // GET: api/[controller]/5
+        [HttpGet("{GetMenuByName}/{name}")]
+        public virtual async Task<ActionResult<Menu>> GetMenuByName(string name)
+        {
+
+            var objects = await _repository.GetMenuByName(name);
+            if (objects == null)
+            {
+                return NotFound();
+            }
+            return Ok(objects);
         }
     }
 }

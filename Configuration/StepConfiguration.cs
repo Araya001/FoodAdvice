@@ -4,26 +4,26 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Food_Advice.Configuration
 {
-    public class StepConfiguration : IEntityTypeConfiguration<Step>
+    public class StepConfiguration : IEntityTypeConfiguration<MenuInstruction>
     {
-        public void Configure(EntityTypeBuilder<Step> builder)
+        public void Configure(EntityTypeBuilder<MenuInstruction> builder)
         {
-            builder.ToTable("Step");
+            builder.ToTable("MenuInstruction");
  
             builder.HasData
             (
-                new Step()
+                new MenuInstruction()
                 {
                     Id = 1,
                     Detail = "1. ตอกไข่ใส่ชาม",
-                    Description = "",
+                   // Description = "",
                     MenuId = 1
                 },
-                new Step()
+                new MenuInstruction()
                 {
                     Id = 2,
                     Detail = "2. เจียวไข่ให้ขึ้นฟอง",
-                    Description = "",
+                  //  Description = "",
                     MenuId = 1
                 }
             );

@@ -4,30 +4,30 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Food_Advice.Configuration
 {
-    public class IntegradientConfiguration : IEntityTypeConfiguration<Integradient>
+    public class IntegradientConfiguration : IEntityTypeConfiguration<Ingredirnt>
     {
-        public void Configure(EntityTypeBuilder<Integradient> builder)
+        public void Configure(EntityTypeBuilder<Ingredirnt> builder)
         {
-            builder.ToTable("Integradient");
+            builder.ToTable("Ingredient");
  
             builder.HasData
             (
-                new Integradient()
+                new Ingredirnt()
                 {
                     Id = 1,
-                    Title = "Egg",
-                    NameTh = "ไข่ไก่",
-                    NameEn = "Eggs",
-                    Description = "ไข่ไก่ มาจากไก่",
+                    //Title = "Egg",
+                    //NameTh = "ไข่ไก่",
+                    //NameEn = "Eggs",
+                    //Description = "ไข่ไก่ มาจากไก่",
                     Type = ""
                 },
-                new Integradient()
+                new Ingredirnt()
                 {
                     Id = 2,
-                    Title = "Fish sauce",
-                    NameTh = "น้ำปลา",
-                    NameEn = "Fish sauce",
-                    Description = "น้ำปลา",
+                    //Title = "Fish sauce",
+                    //NameTh = "น้ำปลา",
+                    //NameEn = "Fish sauce",
+                    //Description = "น้ำปลา",
                     Type = ""
                 }
             );

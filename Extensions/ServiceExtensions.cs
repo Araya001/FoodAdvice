@@ -41,9 +41,9 @@ namespace FoodAdvice.Extensions
         public static void ConfigureRepository(this IServiceCollection services)
         {
             services.AddScoped<EfCoreMenuRepository>();
-            services.AddScoped<EfCoreIntegradientRepository>();
-            services.AddScoped<EfCoreMenuIntegradientRepository>();
-            services.AddScoped<EfCoreStepRepository>();
+            services.AddScoped<EfCoreIngredientRepository>();
+            services.AddScoped<EfCoreMenuIngredientRepository>();
+            services.AddScoped<EfCoreMenuInstructionRepository>();
         }
     }
 }

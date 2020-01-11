@@ -15,11 +15,8 @@ namespace Food_Advice.Configuration
                 new Menu()
                 {
                     Id = 1,
-                    Title = "Omelette",
-                    NameTh = "ข้าวไข่เจียว",
-                    NameEn = "Minced Pork Omelette",
-                    Description = "ข้าวไข่เจียว เป็นอาหารที่ทำง่ายๆ ใครๆก็สามารถทำกินได้แถมรสชาติดี",
-                    Type = "fired"
+                   
+                    //Type = "fired"
                 }
             );
         }

@@ -5,25 +5,26 @@ using FoodAdvice.Data;
 
 namespace Food_Advice.Models
 {
-    public class Integradient : IEntity
+    public class Ingredirnt : IEntity
     {
         [Key]
-        public int Id { get; set; }
         [Required]
-        [StringLength(60)]
-        public string Title { get; set; }
-        [StringLength(30)]
-        public string NameTh { get; set; }
-        [StringLength(30)]
-        public string NameEn { get; set; }
-        [StringLength(260)]
-        public string Description { get; set; }
+        public int Id { get; set; }
+ 
+        [StringLength(200)]
+        public string Name { get; set; }
+        
+        [StringLength(100)] 
         public string Type { get; set; }
+        
+        [StringLength(300)]
+        public string Image { get; set; }
+        
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }
         public DateTime LastUpdatedAt { get; set; }
         public string LastUpdatedBy { get; set; }
         
-        public ICollection<MenuIntegradient> MenuIntegradients { get; set; }
+        public ICollection<MenuIngredient> MenuIntegradients { get; set; }
     }
 }

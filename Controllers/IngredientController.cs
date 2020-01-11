@@ -6,9 +6,9 @@ namespace FoodAdvice.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class IntegradientController : BaseController<Integradient, EfCoreIntegradientRepository>
+    public class IngredientController : BaseController<Ingredirnt, EfCoreIngredientRepository>
     {
-        public IntegradientController(EfCoreIntegradientRepository repository) : base(repository)
+        public IngredientController(EfCoreIngredientRepository repository) : base(repository)
         {
         }
     }

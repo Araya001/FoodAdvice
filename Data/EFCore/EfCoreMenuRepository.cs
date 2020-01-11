@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Food_Advice.Models;
@@ -14,9 +15,9 @@ namespace FoodAdvice.Data.EFCore
         public override async Task<Menu> Get(int id)
         {
             var menu = await _context.Set<Menu>().FindAsync(id);
-            var step = _context.Set<Step>().Where(s => s.Menu == menu).AsNoTracking();
-            var menuIntegradient = _context.Set<MenuIntegradient>().Where(m => m.Menu == menu).AsNoTracking();
-            menu.Steps = step.ToList();
+            var step = _context.Set<MenuInstruction>().Where(s => s.Menu == menu).AsNoTracking();
+            var menuIntegradient = _context.Set<MenuIngredient>().Where(m => m.Menu == menu).AsNoTracking();
+            menu.Steps= step.ToList();
             menu.MenuIntegradients = menuIntegradient.ToList();
             return menu;
         }
@@ -24,9 +25,16 @@ namespace FoodAdvice.Data.EFCore
         public async Task<Menu> GetMenuWithStep(int id)
         {
             var menu = await _context.Set<Menu>().FindAsync(id);
-            var step = _context.Set<Step>().Where(s => s.Menu == menu).AsNoTracking();
+            var step = _context.Set<MenuInstruction>().Where(s => s.Menu == menu).AsNoTracking();
             menu.Steps = step.ToList();
             return menu;
+        }
+        
+        public  async Task<List<Menu>> GetMenuByName(string name)
+        {
+            return await _context.Set<Menu>().Where(m => m.Name.Contains(name)).ToListAsync();
+            //menu
+            //return menu;
         }
     }
 }

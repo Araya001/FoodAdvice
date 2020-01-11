@@ -5,18 +5,21 @@ using FoodAdvice.Data;
 
 namespace Food_Advice.Models
 {
-    public class MenuIntegradient : IEntity
+    public class MenuIngredient : IEntity
     {
         public int MenuId { get; set; }
         public Menu Menu { get; set; }
         
-        public int IntegradientId { get; set; }
-        public Integradient Integradient { get; set; }
+        public int IngredientId { get; set; }
+        public Ingredirnt Ingredient { get; set; }
         
-        public int Priority { get; set; }
-        public string Volumn { get; set; }
+       public string Unit { get; set; } //หน่วยของส่วนผสมแบบย่อ เช่น g
+       public string LongUnit { get; set; } //หน่วยของส่วนผสมแบเต็ม เช่น gram
+       public double Value { get; set; }// จำนวนของส่วนผสม เช่น 20
+        
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Key, Column("MenuIntegradientId")]
+        [Key, Column("MenuIngredientId")]
+        
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
         public string CreatedBy { get; set; }

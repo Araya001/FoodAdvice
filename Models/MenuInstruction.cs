@@ -4,7 +4,7 @@ using FoodAdvice.Data;
 
 namespace Food_Advice.Models
 {
-    public class Step : IEntity
+    public class MenuInstruction : IEntity
     {
         [Key]
         public int Id { get; set; }
@@ -13,11 +13,13 @@ namespace Food_Advice.Models
         public string CreatedBy { get; set; }
         public DateTime LastUpdatedAt { get; set; }
         public string LastUpdatedBy { get; set; }
+        
 
-        [StringLength(1000)]
-        public string Detail { get; set; }
-        [StringLength(260)]
-        public string Description { get; set; }
+        [StringLength(1000)] 
+        public string Detail { get; set; } //รายละเอียดของขั้นตอนนั้น
+        public int Sequence { get; set; } // ลำดับของขั้นตอนนั้นๆ
+        
+ 
         public int MenuId { get; set; }
         public Menu Menu { get; set; }
     }

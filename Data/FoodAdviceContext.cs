@@ -16,26 +16,26 @@ namespace FoodAdvice.Data
         
         //Cofig Model
         public DbSet<Menu> Menus { get; set; }
-        public DbSet<Integradient> Integradients { get; set; }
-        public DbSet<MenuIntegradient> MenuIntegradients { get; set; }
-        public DbSet<Step> Steps { get; set; }
+        public DbSet<Ingredirnt> Ingredients { get; set; }
+        public DbSet<MenuIngredient> MenuIngredients { get; set; }
+        public DbSet<MenuInstruction> Steps { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<MenuIntegradient>()
-                .HasKey(t => new {t.MenuId, t.IntegradientId});
+            modelBuilder.Entity<MenuIngredient>()
+                .HasKey(t => new {t.MenuId, IntegradientId = t.IngredientId});
 
-            modelBuilder.Entity<MenuIntegradient>()
+            modelBuilder.Entity<MenuIngredient>()
                 .HasOne<Menu>(m => m.Menu)
                 .WithMany(mi => mi.MenuIntegradients)
                 .HasForeignKey(m => m.MenuId);
 
-            modelBuilder.Entity<MenuIntegradient>()
-                .HasOne<Integradient>(i => i.Integradient)
+            modelBuilder.Entity<MenuIngredient>()
+                .HasOne<Ingredirnt>(i => i.Ingredient)
                 .WithMany(mi => mi.MenuIntegradients)
-                .HasForeignKey(i => i.IntegradientId);
+                .HasForeignKey(i => i.IngredientId);
 
-            modelBuilder.Entity<Step>()
+            modelBuilder.Entity<MenuInstruction>()
                 .HasOne<Menu>(s => s.Menu)
                 .WithMany(m => m.Steps)
                 .HasForeignKey(s => s.MenuId);
