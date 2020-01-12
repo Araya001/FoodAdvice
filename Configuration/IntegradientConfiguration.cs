@@ -4,31 +4,49 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Food_Advice.Configuration
 {
-    public class IntegradientConfiguration : IEntityTypeConfiguration<Ingredirnt>
+    public class IntegradientConfiguration : IEntityTypeConfiguration<Ingredient>
     {
-        public void Configure(EntityTypeBuilder<Ingredirnt> builder)
+        public void Configure(EntityTypeBuilder<Ingredient> builder)
         {
             builder.ToTable("Ingredient");
  
             builder.HasData
             (
-                new Ingredirnt()
+                new Ingredient()
                 {
                     Id = 1,
-                    //Title = "Egg",
-                    //NameTh = "ไข่ไก่",
-                    //NameEn = "Eggs",
-                    //Description = "ไข่ไก่ มาจากไก่",
-                    Type = ""
+                    Name = "Egg",
+                    Type = "Egg"
                 },
-                new Ingredirnt()
+                new Ingredient()
                 {
                     Id = 2,
-                    //Title = "Fish sauce",
-                    //NameTh = "น้ำปลา",
-                    //NameEn = "Fish sauce",
-                    //Description = "น้ำปลา",
-                    Type = ""
+                    Name = "Salt",
+                    Type = "Seasoning"
+                },
+                new Ingredient()
+                {
+                    Id = 3,
+                    Name = "Butter",
+                    Type = "Material"
+                },
+                new Ingredient()
+                {
+                    Id = 4,
+                    Name = "Pepper",
+                    Type = "Seasoning"
+                },
+                new Ingredient()
+                {
+                    Id = 5,
+                    Name = "Water",
+                    Type = "Material"
+                },
+                new Ingredient()
+                {
+                    Id = 6,
+                    Name = "Shredded Cheese",
+                    Type = "Cheese"
                 }
             );
         }

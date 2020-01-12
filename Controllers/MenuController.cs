@@ -1,11 +1,15 @@
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Food_Advice.Models;
 using FoodAdvice.Data.EFCore;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace FoodAdvice.Controllers
 {
-    [Route("api/[controller]")]
+   // [Route("api/[controller]")]
     [ApiController]
     public class MenuController : BaseController<Menu, EfCoreMenuRepository>
     {
@@ -16,10 +20,10 @@ namespace FoodAdvice.Controllers
             this._repository = repository;
             _menuInstructionRepository = menuInstructionRepository;
         }
-        
+
         // GET: api/[controller]/5
         [HttpGet("{GetMenuByName}/{name}")]
-        public virtual async Task<ActionResult<Menu>> GetMenuByName(string name)
+        public async Task<ActionResult<Menu>> GetMenuByName(string name)
         {
 
             var objects = await _repository.GetMenuByName(name);
@@ -29,5 +33,7 @@ namespace FoodAdvice.Controllers
             }
             return Ok(objects);
         }
+
+        
     }
 }

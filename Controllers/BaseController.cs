@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using FoodAdvice.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FoodAdvice.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("foodadvices/[controller]")]
     [ApiController]
     public abstract class BaseController<TEntity, TRepository> : ControllerBase
         where TEntity : class, IEntity
@@ -18,10 +19,12 @@ namespace FoodAdvice.Controllers
             this._repository= repository;
         }
         
+        //[Authorize]
         // GET: api/[controller]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TEntity>>> GetAll()
         {
+            
             return await _repository.GetAll();
         }
         

@@ -15,8 +15,10 @@ namespace Food_Advice.Configuration
                 new Menu()
                 {
                     Id = 1,
-                   
-                    //Type = "fired"
+                   Description = "The omelette is one of the easiest and most inexpensive meals, and it works beautifully for breakfast, lunch or dinner.",
+                   Name = "Omelette",
+                   Servings = 1,
+                   ReadyInMinutes = 10
                 }
             );
         }

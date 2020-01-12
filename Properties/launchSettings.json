@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "menu",
+      "launchUrl": "foodadvices/menu",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -20,7 +20,7 @@
     "Food_Advice": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "menu",
+      "launchUrl": "foodadvices/menu",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

@@ -16,7 +16,7 @@ namespace FoodAdvice.Data
         
         //Cofig Model
         public DbSet<Menu> Menus { get; set; }
-        public DbSet<Ingredirnt> Ingredients { get; set; }
+        public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<MenuIngredient> MenuIngredients { get; set; }
         public DbSet<MenuInstruction> Steps { get; set; }
 
@@ -31,7 +31,7 @@ namespace FoodAdvice.Data
                 .HasForeignKey(m => m.MenuId);
 
             modelBuilder.Entity<MenuIngredient>()
-                .HasOne<Ingredirnt>(i => i.Ingredient)
+                .HasOne<Ingredient>(i => i.Ingredient)
                 .WithMany(mi => mi.MenuIntegradients)
                 .HasForeignKey(i => i.IngredientId);
 
@@ -43,6 +43,7 @@ namespace FoodAdvice.Data
             modelBuilder.ApplyConfiguration(new MenuConfiguration());
             modelBuilder.ApplyConfiguration(new IntegradientConfiguration());
             modelBuilder.ApplyConfiguration(new StepConfiguration());
+            modelBuilder.ApplyConfiguration(new MenuIngredientConfiguration());
             base.OnModelCreating(modelBuilder);
         }
 

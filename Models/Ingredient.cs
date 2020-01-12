@@ -5,7 +5,7 @@ using FoodAdvice.Data;
 
 namespace Food_Advice.Models
 {
-    public class Ingredirnt : IEntity
+    public class Ingredient : IEntity
     {
         [Key]
         [Required]
